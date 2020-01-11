@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <vector>
  
-using namespace std;
+
  
 typedef unsigned char UCHAR;
  
@@ -40,7 +40,7 @@ public:
     UCHAR next_height_position{};
     UCHAR next_width_position{};
  
-    vector<Point2D> tail{};
+    std::vector<Point2D> tail{};
  
     UCHAR height_edge_of_whole_snake;
     UCHAR width_edge_of_whole_snake;
@@ -173,21 +173,21 @@ void print_map()
     {
         for (int width = 0; width < map_width; width++)
         {
-            cout << map_elements[height][width];
+            std::cout << map_elements[height][width];
         }
-        cout << endl;
+        std::cout << std::endl;
     }
  
-    cout << "Actual score: " << actual_score << endl;
-    cout << "Actual tail size: " << snake.tail.size() << endl;
+    std::cout << "Actual score: " << actual_score << std::endl;
+    std::cout << "Actual tail size: " << snake.tail.size() << std::endl;
 }
  
 Direction read_keyboard_input()
 {
-    cout << "Enter your move (w,s,a,d): ";
+    std::cout << "Enter your move (w,s,a,d): ";
  
     char input;
-    cin >> input;
+    std::cin >> input;
  
     switch (input)
     {
@@ -280,7 +280,7 @@ void update()
     if (still_playing)
         update(); // recursion
     else
-        cout << "You have died." << endl;
+        std::cout << "You have died." << std::endl;
 }
  
 int main()
